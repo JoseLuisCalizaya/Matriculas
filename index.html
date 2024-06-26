@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Alumno por CUI</title>
+    <style>
+    *{
+    	padding: 0;
+	margin: 0;
+	font-family: century gothic;
+	text-align: center;
+}
+
+form {
+	padding: 50px 20px;
+	background-color: rgba(0, 0, 0, 0.5);
+	margin: 30%;
+	margin-top: 70px;
+	padding-top: 28px;
+	margin-bottom: 30px
+}
+
+h1 {
+	text-align: center;
+	padding: 12px;
+	color: #444
+}
+
+input {
+	width: 90%;
+	padding: 9px;
+	margin: auto;
+	margin-top: 12px;
+	font-size: 16px
+}
+
+input[type='submit']{
+	background-color: red;
+	color: #fff;
+	width: 50%;
+	margin: 0 10%;
+	margin-top: 22px;
+	border: none;
+}
+
+body{
+	background-image: url(https://www.unsa.edu.pe/wp-content/uploads/2021/11/PORTADA-ANIVERSARIO-878x426.png);
+	background-size: 100% 200%;
+}
+
+    </style>
+</head>
+<body>
+
+    <form action="/buscar" method="post">
+        <h1><strong>Matriculas UNSA</strong> </h1>
+        <input type="text" name="cui" id="CUI" required>
+        <input type="submit" value="Buscar">
+    </form>
+</body>
+</html>

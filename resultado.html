@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: century gothic;
+            text-align: center;
+        }
+        .base{
+            font-weight: bold;
+            text-align: left;
+            align-items: center;
+            padding: 12px;
+        }
+        #nuevo{
+            width: 50%;
+            height: 60%;
+            padding: 50px 20px;
+            background:radial-gradient(mediumaquamarine,mediumslateblue);
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 2em auto;
+            align-items: center;
+        }
+        h1{
+            text-align: center;
+            padding: 12px;
+            color: black;
+        }
+        td{
+            text-align: start;
+            padding: 2%;
+            font-size: 13px;
+        }
+        table{
+            margin-top: 5%;
+            width: 100%;
+            gap: 16px;
+            border: 2px solid rgba(0, 0, 0, 0.5);
+        }
+
+        h2{
+            font-size: 20px;
+        }
+        p:last-of-type{
+            padding: 3%;
+            background-color: aquamarine;
+            width: 50%;
+            text-align: center;
+            left: 50%;
+            margin: 0 auto;
+        }
+        a{
+            border: inherit;
+            color: red;
+        }
+        body{
+            background-image: url(https://www.unsa.edu.pe/wp-content/uploads/2020/02/computacin-878x426.png);
+            background-size: 50% 20%;
+        }
+        
+    </style>
+    <title>Resultado de la Búsqueda</title>
+</head>
+<body>
+    <div id="nuevo">
+    <h1>Resultado de la Búsqueda</h1>
+    <p><strong>Alumno: </strong> {{nombre }}  {{apellido}} </p><br>
+    <p><strong>Correo: </strong>{{correo}}</p><br>
+    <p><strong>CUI: </strong> {{cui}}</p><br>
+    {% if promgen == -3 %}
+        <p><strong>PROMEDIO GENERAL: </strong> Aún no tiene promedio</p><br>
+    {% else %}
+        <p><strong>PROMEDIO GENERAL: </strong> {{ promgen }}</p><br>
+    {% endif %}
+    <p><strong>SEMESTRE ACTUAL: </strong> {{semestreactual}}</p><br>
+    <br>
+
+    <h2>Cursos pasados que ya llevo</h2>
+    {% if cursos %}
+        <table>
+            <thead>
+                <tr>
+                    <th class="base">Codigo</th>
+                    <th class="base">Curso</th>
+                    <th class="base">Promedio</th>
+                </tr>
+            </thead>
+            {% for i in range(num2)%}
+            <tr>
+                <td class="valor">{{ cursospasados[i]}}</td>
+                <td class="valor">{{ nombrepas[i] }} </td>
+                <td class="valor">{{ promcurso[i] }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No se encontraron cursos para el semestre {{ semestre }}</p>
+    {% endif %}    
+    <br>
+
+    <h2>Cursos que esta llevando en este momento del semestre {{ semestre }}</h2>
+    {% if cursos %}
+        <table>
+            <thead>
+                <tr>
+                    <th class="base">Codigo</th>
+                    <th class="base">Curso</th>
+                    <th class="base">Docente</th>
+                    <th class="base"></th>
+                </tr>
+            </thead>
+            {% for i in range(num)%}
+            <tr>
+                <td class="valor">{{ code[i]}}</td>
+                <td class="valor">{{ cursos[i] }} </td>
+                <td class="valor">{{ docentes[i] }}</td>   
+                <td class="valor">{{ apellidos[i]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No se encontraron cursos para el semestre {{ semestre }}</p>
+    {% endif %}    
+    <br>
+    <h2>Cursos pasados que puede llevar</h2>
+    {% if cursosLleva %}
+        <table>
+            <thead>
+                <tr>
+                    <th class="base">Codigo</th>
+                    <th class="base">Curso</th>
+                    <th class="base">Semestre</th>
+                </tr>
+            </thead>
+            {% for i in range(totalCursosPosibles)%}
+            <tr>
+                <td class="valor">{{ codLleva[i] }}</td>
+                <td class="valor">{{ cursosLleva[i] }} </td>
+                <td class="valor">{{ semestreLleva[i] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No se encontraron cursos para el semestre {{ semestre }}</p>
+    {% endif %}    
+    <br>
+    <p><a href="/">Volver al inicio</a></p>
+    </div>
+</body>
+</html>

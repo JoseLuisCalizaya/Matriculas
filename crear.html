@@ -1,0 +1,23 @@
+{% block title %}
+    Crear usuario
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+    <label>Nombre</label>
+    <input name="nombre" required/>
+
+    <label>Correo</label>
+    <input name="correo" required/>
+
+    <label>CUI</label>
+    <input name="CUI" required/>
+
+    <label>Apellido</label>
+    <input name="Apellido" required/>
+
+    <input type="submit" value="Guardar">
+</form>
+
+{% endblock %}
